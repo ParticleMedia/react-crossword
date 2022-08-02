@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // import produce from 'immer';
 import styled from 'styled-components';
 
-import { EnhancedProps } from './types';
+import { EnhancedProps, Direction } from './types';
 
 import CrosswordProvider, {
   CrosswordProviderImperative,
@@ -126,6 +126,11 @@ const Crossword = React.forwardRef<CrosswordImperative, CrosswordProps>(
          */
         setGuess: (row: number, col: number, guess: string) =>
           providerRef.current?.setGuess(row, col, guess),
+
+        focusClue: (direction: Direction, number: string) =>
+          providerRef.current?.focusClue(direction, number),
+
+        currentClue: () => providerRef.current?.currentClue(),
       }),
       []
     );

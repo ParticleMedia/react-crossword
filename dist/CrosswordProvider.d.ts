@@ -23,7 +23,7 @@ export declare const crosswordProviderPropTypes: {
                 row: PropTypes.Validator<number>;
                 col: PropTypes.Validator<number>;
             }>;
-        }>;
+        }>; /** overall background color (fill) for the crossword grid; can be `'transparent'` to show through a page background image */
     }>>;
     /** presentation values for the crossword; these override any values coming from a parent ThemeProvider context. */
     theme: PropTypes.Requireable<PropTypes.InferProps<{
@@ -225,6 +225,11 @@ export interface CrosswordProviderImperative {
      * @since 4.1.0
      */
     setGuess: (row: number, col: number, guess: string) => void;
+    focusClue: (direction: Direction, number: string) => void;
+    currentClue: () => {
+        direction: Direction;
+        number: string;
+    } | undefined;
 }
 /**
  * The fundamental logic and data management component for react-crossword.
@@ -256,7 +261,7 @@ declare const CrosswordProvider: React.ForwardRefExoticComponent<Omit<PropTypes.
                 row: PropTypes.Validator<number>;
                 col: PropTypes.Validator<number>;
             }>;
-        }>;
+        }>; /** overall background color (fill) for the crossword grid; can be `'transparent'` to show through a page background image */
     }>>;
     /** presentation values for the crossword; these override any values coming from a parent ThemeProvider context. */
     theme: PropTypes.Requireable<PropTypes.InferProps<{

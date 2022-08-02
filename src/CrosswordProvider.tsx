@@ -306,6 +306,8 @@ export interface CrosswordProviderImperative {
   setGuess: (row: number, col: number, guess: string) => void;
 
   focusClue: (direction: Direction, number: string) => void;
+
+  currentClue: () => { direction: Direction; number: string } | undefined;
 }
 
 /**
@@ -1015,6 +1017,11 @@ const CrosswordProvider = React.forwardRef<
         focusClue: (direction: Direction, number: string) => {
           handleClueSelected(direction, number);
         },
+
+        currentClue: () => ({
+            direction: currentDirection,
+            number: currentNumber,
+          }),
       }),
       [
         clues,
@@ -1025,6 +1032,8 @@ const CrosswordProvider = React.forwardRef<
         handleClueSelected,
         storageKey,
         useStorage,
+        currentDirection,
+        currentNumber,
       ]
     );
 

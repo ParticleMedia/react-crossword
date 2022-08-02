@@ -653,14 +653,26 @@ const CrosswordProvider = react_1.default.forwardRef(({ data, theme, onAnswerCom
             // REVIEW: should we force-case this?
             setCellCharacter(row, col, guess.toUpperCase());
         },
+        focusClue: (direction, number) => {
+            handleClueSelected(direction, number);
+        },
+        currentClue: () => {
+            return {
+                direction: currentDirection,
+                number: currentNumber,
+            };
+        },
     }), [
         clues,
         crosswordCorrect,
         focus,
         onLoadedCorrect,
         setCellCharacter,
+        handleClueSelected,
         storageKey,
         useStorage,
+        currentDirection,
+        currentNumber,
     ]);
     const crosswordContext = (0, react_1.useMemo)(() => ({
         size,
