@@ -529,9 +529,6 @@ const CrosswordProvider = react_1.default.forwardRef(({ data, theme, onAnswerCom
                 direction = other;
             }
             setCurrentNumber((_a = cellData[direction]) !== null && _a !== void 0 ? _a : '');
-            if (onClueSelected) {
-                onClueSelected(currentDirection, currentNumber);
-            }
         }
         focus();
     }, [currentDirection, focus, focused, focusedCol, focusedRow]);

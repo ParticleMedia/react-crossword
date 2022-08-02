@@ -602,7 +602,6 @@ const CrosswordProvider = React.forwardRef<
         setFocusedCol(col);
         setCurrentDirection(direction);
         setCurrentNumber(candidate[direction] ?? '');
-
         return candidate;
       },
       [currentDirection, getCellData]
@@ -844,10 +843,6 @@ const CrosswordProvider = React.forwardRef<
           }
 
           setCurrentNumber(cellData[direction] ?? '');
-
-          if (onClueSelected) {
-            onClueSelected(currentDirection, currentNumber);
-          }
         }
 
         focus();
@@ -893,7 +888,6 @@ const CrosswordProvider = React.forwardRef<
         // TODO: sanity-check info?
         moveTo(info.row, info.col, direction);
         focus();
-
         if (onClueSelected) {
           onClueSelected(direction, number);
         }

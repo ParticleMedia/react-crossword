@@ -18,8 +18,7 @@ const ClueWrapper = styled.div.attrs<ClueWrapperProps>((props) => ({
   }`,
 }))<ClueWrapperProps>`
   cursor: default;
-  background-color: ${(props) =>
-    props.highlight ? props.highlightBackground : 'transparent'};
+  display: ${(props) => (props.highlight ? 'block' : 'none')};
 `;
 
 /**
