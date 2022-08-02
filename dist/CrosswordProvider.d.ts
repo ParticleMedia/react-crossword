@@ -23,7 +23,7 @@ export declare const crosswordProviderPropTypes: {
                 row: PropTypes.Validator<number>;
                 col: PropTypes.Validator<number>;
             }>;
-        }>; /** overall background color (fill) for the crossword grid; can be `'transparent'` to show through a page background image */
+        }>;
     }>>;
     /** presentation values for the crossword; these override any values coming from a parent ThemeProvider context. */
     theme: PropTypes.Requireable<PropTypes.InferProps<{
@@ -261,7 +261,7 @@ declare const CrosswordProvider: React.ForwardRefExoticComponent<Omit<PropTypes.
                 row: PropTypes.Validator<number>;
                 col: PropTypes.Validator<number>;
             }>;
-        }>; /** overall background color (fill) for the crossword grid; can be `'transparent'` to show through a page background image */
+        }>;
     }>>;
     /** presentation values for the crossword; these override any values coming from a parent ThemeProvider context. */
     theme: PropTypes.Requireable<PropTypes.InferProps<{

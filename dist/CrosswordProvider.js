@@ -656,12 +656,10 @@ const CrosswordProvider = react_1.default.forwardRef(({ data, theme, onAnswerCom
         focusClue: (direction, number) => {
             handleClueSelected(direction, number);
         },
-        currentClue: () => {
-            return {
-                direction: currentDirection,
-                number: currentNumber,
-            };
-        },
+        currentClue: () => ({
+            direction: currentDirection,
+            number: currentNumber,
+        }),
     }), [
         clues,
         crosswordCorrect,
