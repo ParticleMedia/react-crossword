@@ -304,6 +304,8 @@ export interface CrosswordProviderImperative {
    * @since 4.1.0
    */
   setGuess: (row: number, col: number, guess: string) => void;
+
+  focusClue: (direction: Direction, number: string) => void;
 }
 
 /**
@@ -1009,6 +1011,10 @@ const CrosswordProvider = React.forwardRef<
           // REVIEW: should we force-case this?
           setCellCharacter(row, col, guess.toUpperCase());
         },
+
+        focusClue: (direction: Direction, number: string) => {
+          handleClueSelected(direction, number);
+        },
       }),
       [
         clues,
@@ -1016,6 +1022,7 @@ const CrosswordProvider = React.forwardRef<
         focus,
         onLoadedCorrect,
         setCellCharacter,
+        handleClueSelected,
         storageKey,
         useStorage,
       ]
