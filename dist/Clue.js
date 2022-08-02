@@ -46,7 +46,7 @@ const ClueWrapper = styled_components_1.default.div.attrs((props) => ({
     className: `clue${props.complete ? (props.correct ? ' correct' : ' incorrect') : ''}`,
 })) `
   cursor: default;
-  display: ${(props) => (props.highlight ? 'block' : 'none')};
+  display: ${(props) => (props.highlight ? 'flex' : 'none')};
 `;
 /**
  * Renders an individual clue, with its number. Makes use of `CrosswordContext`
