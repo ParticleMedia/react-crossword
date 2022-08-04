@@ -230,6 +230,8 @@ export interface CrosswordProviderImperative {
         direction: Direction;
         number: string;
     } | undefined;
+    setFocusCharacter: (char: string) => void;
+    deleteFocusCharacter: () => void;
 }
 /**
  * The fundamental logic and data management component for react-crossword.

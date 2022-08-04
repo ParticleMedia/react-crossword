@@ -131,6 +131,10 @@ const Crossword = React.forwardRef<CrosswordImperative, CrosswordProps>(
           providerRef.current?.focusClue(direction, number),
 
         currentClue: () => providerRef.current?.currentClue(),
+
+        setFocusCharacter: (char: string) =>
+          providerRef.current?.setFocusCharacter(char),
+        deleteFocusCharacter: () => providerRef.current?.deleteFocusCharacter(),
       }),
       []
     );

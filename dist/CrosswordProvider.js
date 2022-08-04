@@ -660,6 +660,14 @@ const CrosswordProvider = react_1.default.forwardRef(({ data, theme, onAnswerCom
             direction: currentDirection,
             number: currentNumber,
         }),
+        setFocusCharacter: (char) => {
+            setCellCharacter(focusedRow, focusedCol, char);
+            moveForward();
+        },
+        deleteFocusCharacter: () => {
+            setCellCharacter(focusedRow, focusedCol, "");
+            moveBackward();
+        },
     }), [
         clues,
         crosswordCorrect,
@@ -667,10 +675,13 @@ const CrosswordProvider = react_1.default.forwardRef(({ data, theme, onAnswerCom
         onLoadedCorrect,
         setCellCharacter,
         handleClueSelected,
+        handleSingleCharacter,
         storageKey,
         useStorage,
         currentDirection,
         currentNumber,
+        focusedCol,
+        focusedRow,
     ]);
     const crosswordContext = (0, react_1.useMemo)(() => ({
         size,

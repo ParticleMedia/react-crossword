@@ -308,6 +308,9 @@ export interface CrosswordProviderImperative {
   focusClue: (direction: Direction, number: string) => void;
 
   currentClue: () => { direction: Direction; number: string } | undefined;
+
+  setFocusCharacter: (char: string) => void;
+  deleteFocusCharacter: () => void;
 }
 
 /**
@@ -1019,9 +1022,17 @@ const CrosswordProvider = React.forwardRef<
         },
 
         currentClue: () => ({
-            direction: currentDirection,
-            number: currentNumber,
-          }),
+          direction: currentDirection,
+          number: currentNumber,
+        }),
+        setFocusCharacter: (char: string) => {
+          setCellCharacter(focusedRow, focusedCol, char);
+          moveForward();
+        },
+        deleteFocusCharacter: () => {
+          setCellCharacter(focusedRow, focusedCol, '');
+          moveBackward();
+        },
       }),
       [
         clues,
@@ -1030,10 +1041,13 @@ const CrosswordProvider = React.forwardRef<
         onLoadedCorrect,
         setCellCharacter,
         handleClueSelected,
+        handleSingleCharacter,
         storageKey,
         useStorage,
         currentDirection,
         currentNumber,
+        focusedCol,
+        focusedRow,
       ]
     );
 
